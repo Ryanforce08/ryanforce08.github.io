@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Period Countdown</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    color: #333;
+  }
+  #countdown {
+    font-size: 36px;
+    margin-top: 20px;
+    color: #333;
+  }
+  #period {
+    font-size: 36px;
+    margin-top: 20px;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>School Period Countdown</h1>
+  <h1>    For Lunch C</h1>
+  <div id="period"></div>
+  <div id="countdown"></div>
+  <h1>Expect the sound bell to be off by about 6 seconds</h1>
+</div>
+
+<script>
+// Define the schedule
+const schedule = [
+  { period: "Period 1", start: "07:44", end: "08:24" },
+  { period: "Period 2", start: "08:28", end: "09:08" },
+  { period: "Period 3", start: "09:12", end: "09:52" },
+  { period: "Period 4/5", start: "09:56", end: "10:36" },
+  { period: "Period 6/7", start: "10:39", end: "11:19" },
+  { period: "Period 8", start: "11:22", end: "11:45" },
+  { period: "Period 9/10", start: "11:48", end: "12:28" },
+  { period: "Period 11", start: "12:31", end: "13:11" },
+  { period: "Period 12", start: "13:16", end: "13:55" },
+  { period: "School Starts in", start: "13:54", end: "23:34"}
+];
+
+// Function to calculate time remaining in seconds
+function getTimeRemaining(endTime) {
+  const total = Date.parse(endTime) - Date.parse(new Date());
+  const seconds = Math.floor((total / 1000) % 60);
+  const minutes = Math.floor((total / 1000 / 60) % 60);
+  const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+  return {
+    total,
+    hours,
+    minutes,
+    seconds
+  };
+}
+
+// Function to update countdown every second
+function updateCountdown(endTime, period) {
+  const timeRemaining = getTimeRemaining(endTime);
+
+  // If the current period is over
+  if (timeRemaining.total <= 0) {
+    document.getElementById("period").textContent = `${period.period}:`;
+    document.getElementById("countdown").textContent = "Current period is over!";
+    return;
+  }
+
+  // Display countdown for the current period
+  document.getElementById("period").textContent = `${period.period}:`;
+  document.getElementById("countdown").textContent = `${timeRemaining.hours}h ${timeRemaining.minutes}m ${timeRemaining.seconds}s`;
+
+  // Update countdown every second
+  setTimeout(() => {
+    updateCountdown(endTime, period);
+  }, 1000);
+}
+
+// Function to initialize countdown
+function initializeCountdown() {
+  const now = new Date();
+  let currentPeriod = null;
+  let nextPeriod = null;
+
+  // Find the current period
+  for (let i = 0; i < schedule.length; i++) {
+    const start = new Date(now.toDateString() + " " + schedule[i].start);
+    const end = new Date(now.toDateString() + " " + schedule[i].end);
+    if (now >= start && now <= end) {
+      currentPeriod = schedule[i];
+      nextPeriod = schedule[i + 1];
+      break;
+    }
+  }
+
+  // If there's no current period (after school hours)
+  if (!currentPeriod) {
+    document.getElementById("countdown").textContent = "School is over for today!";
+    return;
+  }
+
+  // Calculate time remaining for the current period
+  const endTime = new Date(now.toDateString() + " " + currentPeriod.end);
+
+  // Start updating countdown
+  updateCountdown(endTime, currentPeriod);
+}
+
+// Start the countdown
+initializeCountdown();
+</script>
+</body>
+</html>

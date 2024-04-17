@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings</title>
+</head>
+<body>
+<h1>Settings</h1>
+<label for="lunch-period">Select Lunch Period:</label>
+<select id="lunch-period">
+  <option value="none">None</option>
+  <option value="Period 4/5">Period 4/5</option>
+  <option value="Period 6/7">Period 6/7</option>
+  <option value="Period 8">Period 8</option>
+</select>
+<button onclick="saveSettings()">Save</button>
+
+<script>
+function saveSettings() {
+  const lunchPeriod = document.getElementById("lunch-period").value;
+  localStorage.setItem("lunchPeriod", lunchPeriod);
+  alert("Settings saved successfully!");
+}
+</script>
+</body>
+</html>
