@@ -16,22 +16,22 @@
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #333;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0.1, 0.1, 0.1, 0.1);
   }
   h1 {
-    color: #333;
+    color: #ffffff;
   }
   #countdown {
     font-size: 36px;
     margin-top: 20px;
-    color: #333;
+    color: #ffffff;
   }
   #period {
     font-size: 36px;
     margin-top: 20px;
-    color: #333;
+    color: #ffffff;
   }
 </style>
 </head>
@@ -42,11 +42,15 @@
   <div id="period"></div>
   <div id="countdown"></div>
   <h1>Expect the sound bell to be off by about 6 seconds</h1>
+  <a href="settings.html">
+    <button>Settings</button>
+</a>
 </div>
 
 <script>
 // Define the schedule
 const schedule = [
+  { period: "Homeroom", start: "07:35", end: "07:40" },
   { period: "Period 1", start: "07:44", end: "08:24" },
   { period: "Period 2", start: "08:28", end: "09:08" },
   { period: "Period 3", start: "09:12", end: "09:52" },
@@ -56,7 +60,8 @@ const schedule = [
   { period: "Period 9/10", start: "11:48", end: "12:28" },
   { period: "Period 11", start: "12:31", end: "13:11" },
   { period: "Period 12", start: "13:16", end: "13:55" },
-  { period: "School Starts in", start: "13:54", end: "23:34"}
+  { period: "Period 14", start: "13:54", end: "14:45" },
+  { period: "Till School Starts", start: "14:46", end: "07:34" }
 ];
 
 // Function to calculate time remaining in seconds
