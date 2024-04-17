@@ -22,23 +22,33 @@
   }
   h1 {
     color: #ffffff;
-  }
+   }
   #countdown {
     font-size: 36px;
     margin-top: 20px;
     color: #ffffff;
-  }
+    }
+  #lunch {
+    font-size: 36px;
+    margin-top: 20px;
+    color: #ffffff;
+    }
   #period {
     font-size: 36px;
     margin-top: 20px;
     color: #ffffff;
+  }
+  button {
+    font-size: 25px;
+    margin-top: 20px;
+    color: #333;
   }
 </style>
 </head>
 <body>
 <div class="container">
   <h1>School Period Countdown</h1>
-  <h1>    For Lunch C</h1>
+  <div id="lunch"></div>
   <div id="period"></div>
   <div id="countdown"></div>
   <h1>Expect the sound bell to be off by about 6 seconds</h1>
@@ -48,22 +58,77 @@
 </div>
 
 <script>
-// Define the schedule
-const schedule = [
-  { period: "Homeroom", start: "07:35", end: "07:40" },
-  { period: "Period 1", start: "07:44", end: "08:24" },
-  { period: "Period 2", start: "08:28", end: "09:08" },
-  { period: "Period 3", start: "09:12", end: "09:52" },
-  { period: "Period 4/5", start: "09:56", end: "10:36" },
-  { period: "Period 6/7", start: "10:39", end: "11:19" },
-  { period: "Period 8", start: "11:22", end: "11:45" },
-  { period: "Period 9/10", start: "11:48", end: "12:28" },
-  { period: "Period 11", start: "12:31", end: "13:11" },
-  { period: "Period 12", start: "13:16", end: "13:55" },
-  { period: "Period 14", start: "13:54", end: "14:45" },
-  { period: "Till School Starts", start: "14:46", end: "07:34" }
-];
+// Retrieve lunch period from local storage
+const lunchPeriod = localStorage.getItem("lunchPeriod");
 
+// Define the schedule based on lunch period
+let schedule;
+if (lunchPeriod === "Period B") {
+    document.getElementById("lunch").textContent = "Lunch B";
+    schedule = [
+    { period: "Period 1", start: "07:44", end: "08:24" },
+    { period: "Period 2", start: "08:28", end: "09:08" },
+    { period: "Period 3", start: "09:12", end: "09:52" },
+    { period: "Lunch", start: "09:52", end: "10:36" },
+    { period: "Period 6/7", start: "10:39", end: "11:19" },
+    { period: "Period 8", start: "11:22", end: "11:45" },
+    { period: "Period 9/10", start: "11:48", end: "12:28" },
+    { period: "Period 11", start: "12:31", end: "13:11" },
+    { period: "Period 12", start: "13:16", end: "13:55" }
+  ];
+} else if (lunchPeriod === "Period C") {
+    document.getElementById("lunch").textContent = "Lunch C";
+    schedule = [
+    { period: "Period 1", start: "07:44", end: "08:24" },
+    { period: "Period 2", start: "08:28", end: "09:08" },
+    { period: "Period 3", start: "09:12", end: "09:52" },
+    { period: "Period 4/5", start: "09:56", end: "10:36" },
+    { period: "Lunch", start: "10:36", end: "11:19" },
+    { period: "Period 8", start: "11:22", end: "11:45" },
+    { period: "Period 9/10", start: "11:48", end: "12:28" },
+    { period: "Period 11", start: "12:31", end: "13:11" },
+    { period: "Period 12", start: "13:16", end: "13:55" }
+  ];
+} else if (lunchPeriod === "Period D") {
+    document.getElementById("lunch").textContent = "Lunch D";
+    schedule = [
+    { period: "Period 1", start: "07:44", end: "08:24" },
+    { period: "Period 2", start: "08:28", end: "09:08" },
+    { period: "Period 3", start: "09:12", end: "09:52" },
+    { period: "Period 4/5", start: "09:56", end: "10:36" },
+    { period: "Period 6/7", start: "10:39", end: "11:19" },
+    { period: "Lunch", start: "11:19", end: "11:45" },
+    { period: "Period 9/10", start: "11:48", end: "12:28" },
+    { period: "Period 11", start: "12:31", end: "13:11" },
+    { period: "Period 12", start: "13:16", end: "13:55" }
+  ]; 
+} else if (lunchPeriod === "Period D") {
+    document.getElementById("lunch").textContent = "Lunch D";
+    schedule = [
+    { period: "Period 1", start: "07:44", end: "08:24" },
+    { period: "Period 2", start: "08:28", end: "09:08" },
+    { period: "Period 3", start: "09:12", end: "09:52" },
+    { period: "Period 4/5", start: "09:56", end: "10:36" },
+    { period: "Period 6/7", start: "10:39", end: "11:19" },
+    { period: "Lunch", start: "11:19", end: "11:45" },
+    { period: "Period 9/10", start: "11:48", end: "12:28" },
+    { period: "Period 11", start: "12:31", end: "13:11" },
+    { period: "Period 12", start: "13:16", end: "13:55" }
+  ];
+} else {
+  // Default schedule if lunch period is not set
+  schedule = [
+    { period: "Period 1", start: "07:44", end: "08:24" },
+    { period: "Period 2", start: "08:28", end: "09:08" },
+    { period: "Period 3", start: "09:12", end: "09:52" },
+    { period: "Period 4/5", start: "09:56", end: "10:36" },
+    { period: "Period 6/7", start: "10:39", end: "11:19" },
+    { period: "Period 8", start: "11:22", end: "11:45" },
+    { period: "Period 9/10", start: "11:48", end: "12:28" },
+    { period: "Period 11", start: "12:31", end: "13:11" },
+    { period: "Period 12", start: "13:16", end: "13:55" }
+  ];
+}
 // Function to calculate time remaining in seconds
 function getTimeRemaining(endTime) {
   const total = Date.parse(endTime) - Date.parse(new Date());

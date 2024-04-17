@@ -4,21 +4,53 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Settings</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0.1, 0.1, 0.1, 0.1);
+  }
+  h1 {
+    color: #ffffff;
+   }
+   #lunch-period {
+    font-size: 25px;
+    margin-top: 20px;
+    color: #333;
+  }
+   button {
+    font-size: 25px;
+    margin-top: 20px;
+    color: #333;
+  }
+</style>
 </head>
 <body>
-<h1>Settings</h1>
-<label for="lunch-period">Select Lunch Period:</label>
-<select id="lunch-period">
-  <option value="none">None</option>
-  <option value="Period b">Period B</option>
-  <option value="Period c">Period C</option>
-  <option value="Period d">Period D</option>
-  <option value="Period e">Period E</option>
-</select>
-<button onclick="saveSettings()">Save</button>
-<a href="index.html">
-    <button>Go Back</button>
-</a>
+<div class="container">
+    <h1>Settings</h1>
+    <label for="lunch-period" style="font-size: 25px; margin-top: 20px; color: #ffffff;">Select Lunch Period:</label>
+    <select id="lunch-period">
+    <option value="none">None</option>
+    <option value="Period B">Period B</option>
+    <option value="Period C">Period C</option>
+    <option value="Period D">Period D</option>
+    <option value="Period E">Period E</option>
+    </select>
+    <button onclick="saveSettings()">Save</button>
+    <a href="index.html">
+        <button>Go Back</button>
+    </a>
+</div>
 <script>
 function saveSettings() {
   const lunchPeriod = document.getElementById("lunch-period").value;
