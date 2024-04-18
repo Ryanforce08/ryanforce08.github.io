@@ -106,7 +106,7 @@ if (lunchPeriod === "Period B") {
     { period: "Period 14", start: "14:00", end: "14:40" }
   ]; 
 } else if (lunchPeriod === "Period E") {
-    document.getElementById("lunch").textContent = "Lunch D";
+    document.getElementById("lunch").textContent = "Lunch E";
     schedule = [
     { period: "Period 1", start: "07:44", end: "08:24" },
     { period: "Period 2", start: "08:28", end: "09:08" },
@@ -121,6 +121,7 @@ if (lunchPeriod === "Period B") {
   ];
 } else {
   // Default schedule if lunch period is not set
+  document.getElementById("lunch").textContent = "No Lunch Set";
   schedule = [
     { period: "Period 1", start: "07:44", end: "08:24" },
     { period: "Period 2", start: "08:28", end: "09:08" },
