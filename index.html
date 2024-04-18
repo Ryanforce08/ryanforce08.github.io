@@ -10,15 +10,14 @@
     text-align: center;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #333;
   }
   .container {
-    max-width: 600px;
+    max-width: 6000px;
     margin: 50px auto;
     padding: 20px;
     background-color: #333;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0.1, 0.1, 0.1, 0.1);
   }
   h1 {
     color: #ffffff;
@@ -38,6 +37,11 @@
     margin-top: 20px;
     color: #ffffff;
   }
+  #day {
+    font-size: 36px;
+    margin-top: 20px;
+    color: #ffffff;
+  }
   button {
     font-size: 25px;
     margin-top: 20px;
@@ -48,6 +52,7 @@
 <body>
 <div class="container">
   <h1>School Period Countdown</h1>
+  <div id="day"></div>
   <div id="lunch"></div>
   <div id="period"></div>
   <div id="countdown"></div>
@@ -60,6 +65,10 @@
 <script>
 // Retrieve lunch period from local storage
 const lunchPeriod = localStorage.getItem("lunchPeriod");
+
+document.getElementById("day").textContent = "placeholder";
+
+
 
 // Define the schedule based on lunch period
 let schedule;
@@ -202,6 +211,7 @@ function initializeCountdown() {
 
 // Start the countdown
 initializeCountdown();
+
 </script>
 </body>
 </html>
