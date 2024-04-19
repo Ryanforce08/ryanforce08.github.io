@@ -14,12 +14,12 @@
   }
   .container {
     max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
+    margin: 0px auto;
+    padding: 80px;
     background-color: #333;
     border-radius: 8px;
   }
-  h1, #letterDay, #lunch, #period, #countdown {
+  h1, #letterDay, #lunch, #period, #countdown,#day {
     font-size: 36px;
     margin-top: 20px;
     color: #ffffff;
@@ -34,6 +34,7 @@
 <body>
 <div class="container">
   <h1>School Period Countdown</h1>
+  <div id="letters"> </div>
   <div id="lunch"></div>
   <div id="period"></div>
   <div id="countdown"></div>
@@ -44,12 +45,77 @@
 </div>
 
 <script>
+const counter = localStorage.getItem("counter")
+
 document.addEventListener('DOMContentLoaded', function() {
+ 
+// Function to retrieve the counter value from localStorage and return the corresponding letter
+function getCounterValue() {
+  const storedValue = localStorage.getItem('counterValue');
+  if (storedValue) {
+    const counter = parseInt(storedValue);
+    const letters = ['a', 'b', 'c', 'd', 'e'];
+    if (counter >= 1 && counter <= 5) {
+      return letters[counter - 1]; // Map counter value to letter
+    }
+  }
+  return 'N/A'; // Default value if not set or invalid
+}
+
+
+// Function to increment the counter if it's not a weekend and reset it if it reaches 5
+function incrementCounterIfNotWeekend() {
+  const today = new Date();
+  if (!isWeekend(today)) {
+    if (counter < 5) {
+      counter++;
+    } else {
+      counter = 1; // Reset to 1 if counter reaches 5
+    }
+  }
+}
+ 
+  // Function to check if a given date is a weekend (Saturday or Sunday)
+function isWeekend(date) {
+  const day = date.getDay();
+  return day === 0 || day === 6;
+}
+
+// Function to increment the counter if it's not a weekend and reset it if it reaches 5
+function incrementCounterIfNotWeekend() {
+  const today = new Date();
+  if (!isWeekend(today)) {
+    if (counter < 5) {
+      counter++;
+    } else {
+      counter = 1; // Reset to 1 if counter reaches 5
+    }
+  }
+}
+
+// Initialize counter
+let counter = 1;
+
+// Increment the counter for each day up to a certain limit (let's say 30 days)
+for (let i = 0; i < 30; i++) {
+  incrementCounterIfNotWeekend();
+}
+///if (counter == 1)
+  ///document.getElementById("day").textContent = "A day";
+///else if (counter == 2)
+  ///document.getElementById("day").textContent = "B day";
+///else if (counter==3)
+  ///document.getElementById("day").textContent = "C day";
+///else if (counter==4)
+ /// document.getElementById("day").textContent = "D day";
+///else if (counter==5)
+  ///document.getElementById("day").textContent = "E day";
+
   // Retrieve lunch period from local storage
   const lunchPeriod = localStorage.getItem("lunchPeriod");
   // Retrieve Letter day from local storage
   const days = localStorage.getItem("letterDay");
-
+  document.getElementById("letterDay")
   // Define the schedule based on lunch period
   let schedule;
   switch (lunchPeriod) {
