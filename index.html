@@ -154,6 +154,8 @@ function updateCountdown(endTime, period) {
 
   // If the current period is over
   if (timeRemaining.total <= 0) {
+    // Refresh the page
+    location.reload();
     document.getElementById("period").textContent = `${period.period}:`;
     document.getElementById("countdown").textContent = "Current period is over!";
     return;
