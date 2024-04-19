@@ -13,7 +13,7 @@
     background-color: #333;
   }
   .container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 50px auto;
     padding: 20px;
     background-color: #333;
@@ -46,6 +46,15 @@
     <option value="Period D">Lunch D</option>
     <option value="Period E">Lunch E</option>
     </select>
+    <label for="letter-day" style="font-size: 25px; margin-top: 20px; color: #ffffff;">Select Current day:</label>
+    <select id="letter-day">
+    <option value="none">None</option>
+    <option value="A">A Day</option>
+    <option value="B">B Day</option>
+    <option value="C">C Day</option>
+    <option value="D">D Day</option>
+    <option value="E">E Day</option>
+    </select>
     <button onclick="saveSettings()">Save</button>
     <a href="index.html">
         <button>Go Back</button>
@@ -55,6 +64,8 @@
 function saveSettings() {
   const lunchPeriod = document.getElementById("lunch-period").value;
   localStorage.setItem("lunchPeriod", lunchPeriod);
+  const letterDay = document.getElementById("letter-day").value;
+  localStorage.setItem("letterDay", letterDay);
   alert("Settings saved successfully!");
 }
 </script>
