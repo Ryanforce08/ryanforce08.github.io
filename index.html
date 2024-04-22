@@ -65,8 +65,12 @@ let schedule;
 if (lunchPeriod === "Period B") {
     document.getElementById("lunch").textContent = "Lunch B";
     schedule = [
+    { period: "School Starts in", start: "00:00", end: "07:34" },
+    { period: "Homeroom", start: "07:35", end: "07:40" },
     { period: "Period 1", start: "07:44", end: "08:24" },
+    { period: "Period 1/2", start: "8:24", end: "08:27" },
     { period: "Period 2", start: "08:28", end: "09:08" },
+    { period: "Period 2/3", start: "08:08", end: "09:12" },
     { period: "Period 3", start: "09:12", end: "09:52" },
     { period: "Period 4", start: "09:52", end: "10:36" },
     { period: "Lunch", start: "10:39", end: "11:02" },
@@ -74,11 +78,13 @@ if (lunchPeriod === "Period B") {
     { period: "Period 9/10", start: "11:48", end: "12:28" },
     { period: "Period 11", start: "12:31", end: "13:11" },
     { period: "Period 12", start: "13:16", end: "13:55" },
-    { period: "Period 14", start: "14:00", end: "14:40" }
+    { period: "Period 14", start: "14:00", end: "14:39" }
  ];
 } else if (lunchPeriod === "Period C") {
     document.getElementById("lunch").textContent = "Lunch C";
     schedule = [
+    { period: "School Starts in", start: "00:00", end: "07:34" },
+    { period: "Homeroom", start: "07:35", end: "07:40" },
     { period: "Period 1", start: "07:44", end: "08:24" },
     { period: "Period 2", start: "08:28", end: "09:08" },
     { period: "Period 3", start: "09:12", end: "09:52" },
@@ -88,11 +94,13 @@ if (lunchPeriod === "Period B") {
     { period: "Period 9/10", start: "11:48", end: "12:28" },
     { period: "Period 11", start: "12:31", end: "13:11" },
     { period: "Period 12", start: "13:16", end: "13:55" },
-    { period: "Period 14", start: "14:00", end: "14:40" }
+    { period: "Period 14", start: "14:00", end: "14:39" }
   ];
 } else if (lunchPeriod === "Period D") {
     document.getElementById("lunch").textContent = "Lunch D";
     schedule = [
+    { period: "School Starts in", start: "00:00", end: "07:34" },
+    { period: "Homeroom", start: "07:35", end: "07:40" },
     { period: "Period 1", start: "07:44", end: "08:24" },
     { period: "Period 2", start: "08:28", end: "09:08" },
     { period: "Period 3", start: "09:12", end: "09:52" },
@@ -102,11 +110,13 @@ if (lunchPeriod === "Period B") {
     { period: "Lunch", start: "12:05", end: "12:28" },
     { period: "Period 11", start: "12:31", end: "13:11" },
     { period: "Period 12", start: "13:16", end: "13:55" },
-    { period: "Period 14", start: "14:00", end: "14:40" }
+    { period: "Period 14", start: "14:00", end: "14:39" }
   ]; 
 } else if (lunchPeriod === "Period E") {
     document.getElementById("lunch").textContent = "Lunch E";
     schedule = [
+    { period: "School Starts in", start: "00:00", end: "07:34" },
+    { period: "Homeroom", start: "07:35", end: "07:40" },
     { period: "Period 1", start: "07:44", end: "08:24" },
     { period: "Period 2", start: "08:28", end: "09:08" },
     { period: "Period 3", start: "09:12", end: "09:52" },
@@ -116,12 +126,14 @@ if (lunchPeriod === "Period B") {
     { period: "Period 9/10", start: "12:05", end: "12:45" },
     { period: "Lunch", start: "12:48", end: "13:11" },
     { period: "Period 12", start: "13:16", end: "13:55" },
-    { period: "Period 14", start: "14:00", end: "14:40" }
+    { period: "Period 14", start: "14:00", end: "14:39" }
   ];
 } else {
   // Default schedule if lunch period is not set
   document.getElementById("lunch").textContent = "No Lunch Set";
   schedule = [
+    { period: "School Starts in", start: "00:00", end: "07:34" },
+    { period: "Homeroom", start: "07:35", end: "07:40" },
     { period: "Period 1", start: "07:44", end: "08:24" },
     { period: "Period 2", start: "08:28", end: "09:08" },
     { period: "Period 3", start: "09:12", end: "09:52" },
@@ -131,7 +143,7 @@ if (lunchPeriod === "Period B") {
     { period: "Period 9/10", start: "11:48", end: "12:28" },
     { period: "Period 11", start: "12:31", end: "13:11" },
     { period: "Period 12", start: "13:16", end: "13:55" },
-    { period: "Period 14", start: "14:00", end: "14:40" }
+    { period: "Period 14", start: "14:00", end: "14:39" }
   ];
 }
 // Function to calculate time remaining in seconds
@@ -181,6 +193,7 @@ function initializeCountdown() {
   for (let i = 0; i < schedule.length; i++) {
     const start = new Date(now.toDateString() + " " + schedule[i].start);
     const end = new Date(now.toDateString() + " " + schedule[i].end);
+    location.reload();
     if (now >= start && now <= end) {
       currentPeriod = schedule[i];
       nextPeriod = schedule[i + 1];
@@ -191,6 +204,7 @@ function initializeCountdown() {
   // If there's no current period (after school hours)
   if (!currentPeriod) {
     document.getElementById("countdown").textContent = "School is over for today!";
+    location.reload();
     return;
   }
 
