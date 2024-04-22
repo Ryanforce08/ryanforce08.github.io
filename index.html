@@ -72,6 +72,7 @@ if (lunchPeriod === "Period B") {
     { period: "Period 2", start: "08:28", end: "09:08" },
     { period: "Period 2/3", start: "08:08", end: "09:12" },
     { period: "Period 3", start: "09:12", end: "09:52" },
+    { period: "Period 3/4", start: "09:52", end: "09:51" },
     { period: "Period 4", start: "09:52", end: "10:36" },
     { period: "Lunch", start: "10:39", end: "11:02" },
     { period: "Period 7", start: "11:05", end: "11:45" },
@@ -193,10 +194,16 @@ function initializeCountdown() {
   for (let i = 0; i < schedule.length; i++) {
     const start = new Date(now.toDateString() + " " + schedule[i].start);
     const end = new Date(now.toDateString() + " " + schedule[i].end);
-    location.reload();
+    
+    if (self.i=0 ){
+      location.reload();
+    }
+
+
     if (now >= start && now <= end) {
       currentPeriod = schedule[i];
       nextPeriod = schedule[i + 1];
+      self.i=1
       break;
     }
   }
@@ -204,7 +211,7 @@ function initializeCountdown() {
   // If there's no current period (after school hours)
   if (!currentPeriod) {
     document.getElementById("countdown").textContent = "School is over for today!";
-    location.reload();
+    self.i = 0
     return;
   }
 
