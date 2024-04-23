@@ -1,0 +1,9 @@
+{
+    "name": "Period Timer",
+    "short_name": "Period Timer",
+    "theme_color": "#333",
+    "background_color": "#333",
+    "display": "fullscreen",
+    "scope": "/",
+    "start_url": "http://periodtimer.ryanr.xyz"
+  }
