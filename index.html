@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <link rel="manifest" href="/static/manifest.json">
+<head><link rel="manifest" href="/static/manifest.json">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>School Period Countdown</title>
@@ -58,6 +57,10 @@
 </div>
 
 <script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+
 // Retrieve lunch period from local storage
 const lunchPeriod = localStorage.getItem("lunchPeriod");
 
@@ -225,11 +228,6 @@ function initializeCountdown() {
 
 // Start the countdown
 initializeCountdown();
-if (!navigator.serviceWorker.controller) {
-     navigator.serviceWorker.register("/sw.js").then(function(reg) {
-         console.log("Service worker has been registered for scope: " + reg.scope);
-     });
- }
 </script>
 </body>
 </html>
