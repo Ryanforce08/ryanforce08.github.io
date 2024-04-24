@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="manifest" href="/static/manifest.json">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>School Period Countdown</title>
@@ -224,6 +225,11 @@ function initializeCountdown() {
 
 // Start the countdown
 initializeCountdown();
+if (!navigator.serviceWorker.controller) {
+     navigator.serviceWorker.register("/sw.js").then(function(reg) {
+         console.log("Service worker has been registered for scope: " + reg.scope);
+     });
+ }
 </script>
 </body>
 </html>
