@@ -4,5 +4,8 @@
     "theme_color": "#333",
     "background_color": "#333",
     "display": "standalone",
-    "scope": "/"
+    "scope": "/",
+    "start_url": "https://periodtimer.ryanr.xyz/",
+    "description": "Tracks How much longer in a period acourding to the MHS Schedule",
+    "orientation": "any"
   }
