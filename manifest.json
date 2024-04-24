@@ -1,11 +1,13 @@
 {
-    "name": "Period Timer",
-    "short_name": "Period Timer",
-    "theme_color": "#333",
-    "background_color": "#333",
-    "display": "standalone",
-    "scope": "/",
-    "start_url": "https://periodtimer.ryanr.xyz/",
-    "description": "Tracks How much longer in a period acourding to the MHS Schedule",
-    "orientation": "any"
-  }
+  "background_color": "#333333",
+  "dir": "ltr",
+  "display": "fullscreen",
+  "name": "periodtimer",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "periodtimer",
+  "start_url": "/periodtimer.ryanr.xyz",
+  "theme_color": "#333333",
+  "id": "periodtimer",
+  "description": "period tracker that say how much longer in a period according to the MHS Schedule"
+}
