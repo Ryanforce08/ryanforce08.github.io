@@ -1,15 +1,4 @@
 {
-  "background_color": "#333333",
-  "dir": "ltr",
-  "display": "fullscreen",
-  "name": "periodtimer",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "periodtimer",
-  "start_url": "/periodtimer.ryanr.xyz",
-  "theme_color": "#333333",
-  "id": "periodtimer",
-  "description": "period tracker that say how much longer in a period according to the MHS Schedule",
   "icons": [
     {
       "src": "windows11/SmallTile.scale-100.png",
