@@ -14,7 +14,7 @@
   }
   .container {
     max-width: 600px;
-    padding: 90px;
+    padding: 10px;
     margin: 0px auto;
     background-color: #333;
     border-radius: 8px;
@@ -44,7 +44,8 @@
   }
 </style>
 </head>
-<body>
+<body style="color: #333;",>
+  <meta name="darkreader-lock">
 <div class="container">
   <h1>School Period Countdown</h1>
   <div id="lunch"></div>
@@ -57,6 +58,12 @@
 </div>
 
 <script>
+  //disables dark reader so it doent look like crap
+  
+  
+  
+  
+  
   if (typeof navigator.serviceWorker !== 'undefined') {
     navigator.serviceWorker.register('sw.js')
   }
