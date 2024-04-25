@@ -22,18 +22,13 @@
   h1 {
     color: #ffffff;
    }
-  #countdown {
+  #countdown,#lunch,#period {
     font-size: 36px;
     margin-top: 20px;
     color: #ffffff;
     }
-  #lunch {
-    font-size: 36px;
-    margin-top: 20px;
-    color: #ffffff;
-    }
-  #period {
-    font-size: 36px;
+  .notes {
+    font-size: 15px;
     margin-top: 20px;
     color: #ffffff;
   }
@@ -46,29 +41,54 @@
 </head>
 <body style="color: #333;",>
   <meta name="darkreader-lock">
+    <script src="counter.js"></script>
+    <div id="counter"></div>
 <div class="container">
   <h1>School Period Countdown</h1>
+  <h1>Letter Day: <span id="letter"></span></h1>
   <div id="lunch"></div>
+  <div id="letter"></div>
   <div id="period"></div>
   <div id="countdown"></div>
   <h1>Expect the sound bell to be off by about 6 seconds</h1>
   <a href="settings.html">
     <button>Settings</button>
 </a>
+  <div class="notes">
+    <div>Release Notes</div>
+    <div id="message"></div>
+  </div>
+  
 </div>
-
 <script>
-  //disables dark reader so it doent look like crap
-  
-  
-  
-  
+//letter day stuff
+if (counter = "1"){
+  document.getElementById("letter").textContent = "A";
+}
+if (counter = "2"){
+  document.getElementById("letter").textContent = "B";
+}
+if (counter = "3"){
+  document.getElementById("letter").textContent = "C";
+}
+if (counter = "4"){
+  document.getElementById("letter").textContent = "D";
+}
+if (counter = "5"){
+  document.getElementById("letter").textContent = "E";
+}
+  fetch('https://api.github.com/repos/Ryanforce08/ryanforce08.github.io/commits?per_page=1')
+  .then(res => res.json())
+  .then(res => {
+    document.getElementById('message').innerHTML = res[0].commit.message
+  })
   
   if (typeof navigator.serviceWorker !== 'undefined') {
     navigator.serviceWorker.register('sw.js')
   }
 
-// Retrieve lunch period from local storage
+
+  // Retrieve lunch period from local storage
 const lunchPeriod = localStorage.getItem("lunchPeriod");
 
 // Define the schedule based on lunch period
@@ -237,4 +257,5 @@ function initializeCountdown() {
 initializeCountdown();
 </script>
 </body>
+
 </html>
