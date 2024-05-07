@@ -56,22 +56,25 @@
     <option value="Period D">Lunch D</option>
     <option value="Period E">Lunch E</option>
     </select>
-    <label for="letterday" style="font-size: 25px; margin-top: 20px; color: #ffffff;">Select Letter Day:</label>
-    <select id="letterday">
-      <option value="1">A</option>
-      <option value="2">B</option>
-      <option value="3">C</option>
-      <option value="4">D</option>
-      <option value="5">E</option>
-      </select>
-      <div></div>
+
     <button onclick="saveSettingslunch()">Save Lunch</button>
-    <button onclick="saveSettingsday()">Save Letter Day</button>
+    
     <a href="index.html">
         <button>Go Back</button>
     </a>
 </div>
 <script>
+
+//<label for="letterday" style="font-size: 25px; margin-top: 20px; color: #ffffff;">Select Letter Day:</label>
+//    <select id="letterday">
+//      <option value="1">A</option>
+//      <option value="2">B</option>
+//      <option value="3">C</option>
+//      <option value="4">D</option>
+//      <option value="5">E</option>
+//      </select>
+//      <div></div>
+//<button onclick="saveSettingsday()">Save Letter Day</button>
 function saveSettingslunch() {
   const lunchPeriod = document.getElementById("lunch-period").value;
   localStorage.setItem("lunchPeriod", lunchPeriod);

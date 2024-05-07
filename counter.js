@@ -42,7 +42,7 @@ function displayCounter() {
 function init() {
     // Check if counter has already been initialized
     if (!localStorage.getItem('counter')) {
-        localStorage.setItem('counter', 1);
+        localStorage.setItem('counter');
     }
 
     updateCounterIfWeekday();
