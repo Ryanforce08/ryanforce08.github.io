@@ -144,6 +144,20 @@ if (lunchPeriod === "Period B") {
     { period: "Period 12", start: "13:16", end: "13:55" },
     { period: "Period 14", start: "14:00", end: "14:39" }
   ];
+} else if (lunchPeriod === "Halfday") {
+    document.getElementById("lunch").textContent = "Halfday";
+    schedule = [
+    { period: "School Starts in", start: "00:00", end: "07:34" },
+    { period: "Homeroom", start: "07:35", end: "07:40" },
+    { period: "Period 1", start: "07:44", end: "08:12" },
+    { period: "Period 2", start: "08:16", end: "08:44" },
+    { period: "Period 3", start: "08:48", end: "09:16" },
+    { period: "Period 4", start: "09:20", end: "09:48" },
+    { period: "Period 6/7", start: "09:52", end: "10:20" },
+    { period: "Period 8/9", start: "10:24", end: "10:52" },
+    { period: "Period 10/11", start: "10:56", end: "11:24" },
+    { period: "Period 12", start: "11:28", end: "11:56" }
+  ];
 } else {
   // Default schedule if lunch period is not set
   document.getElementById("lunch").textContent = "No Lunch Set";
