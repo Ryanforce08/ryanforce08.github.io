@@ -11,10 +11,43 @@ if (typeof navigator.serviceWorker !== 'undefined') {
 
 // Retrieve lunch period from local storage
 const lunchPeriod = localStorage.getItem("lunchPeriod");
+const daytype = localStorage.getItem("daytype");
 
 // Define the schedule based on lunch period
 let schedule;
-if (lunchPeriod === "Period B") {
+if (daytype === "Halfday"){
+    document.getElementById("lunch").textContent = "Halfday";
+    schedule = [
+    { period: "School Starts in", start: "00:00", end: "07:34" },
+    { period: "Homeroom", start: "07:35", end: "07:40" },
+    { period: "Period 1", start: "07:44", end: "08:12" },
+    { period: "Period 2", start: "08:16", end: "08:44" },
+    { period: "Period 3", start: "08:48", end: "09:16" },
+    { period: "Period 4", start: "09:20", end: "09:48" },
+    { period: "Period 6/7", start: "09:52", end: "10:20" },
+    { period: "Period 8/9", start: "10:24", end: "10:52" },
+    { period: "Period 10/11", start: "10:56", end: "11:24" },
+    { period: "Period 12", start: "11:28", end: "11:56" }
+  ];
+  }
+  else if (daytype === "2hour"){
+    document.getElementById("lunch").textContent = "2 Hour Delay";
+    schedule = [
+      { period: "Homeroom", start: "09:35", end: "09:40" },
+      { period: "Period 1", start: "09:44", end: "10:09" },
+      { period: "Period 2", start: "10:13", end: "10:38" },
+      { period: "Period 3", start: "10:42", end: "11:07" },
+      { period: "Period 4/5", start: "11:11", end: "11:36" },
+      { period: "Period 6 - B Lunch", start: "11:39", end: "12:04" },
+      { period: "Period 8 - C Lunch", start: "12:07", end: "12:32" },
+      { period: "Period 10 - D Lunch", start: "12:35", end: "13:00" },
+      { period: "Period 11/E - Lunch", start: "13:03", end: "13:28" },
+      { period: "Period 12", start: "13:32", end: "13:57" },
+      { period: "Period 14", start: "14:00", end: "14:40" }
+    ];
+  }    
+
+else if (lunchPeriod === "Period B") {
   document.getElementById("lunch").textContent = "Lunch B";
   schedule = [
   { period: "School Starts in", start: "00:00", end: "07:34" },
@@ -80,20 +113,6 @@ if (lunchPeriod === "Period B") {
   { period: "Lunch", start: "12:48", end: "13:11" },
   { period: "Period 12", start: "13:16", end: "13:55" },
   { period: "Period 14", start: "14:00", end: "14:39" }
-];
-} else if (lunchPeriod === "Halfday") {
-  document.getElementById("lunch").textContent = "Halfday";
-  schedule = [
-  { period: "School Starts in", start: "00:00", end: "07:34" },
-  { period: "Homeroom", start: "07:35", end: "07:40" },
-  { period: "Period 1", start: "07:44", end: "08:12" },
-  { period: "Period 2", start: "08:16", end: "08:44" },
-  { period: "Period 3", start: "08:48", end: "09:16" },
-  { period: "Period 4", start: "09:20", end: "09:48" },
-  { period: "Period 6/7", start: "09:52", end: "10:20" },
-  { period: "Period 8/9", start: "10:24", end: "10:52" },
-  { period: "Period 10/11", start: "10:56", end: "11:24" },
-  { period: "Period 12", start: "11:28", end: "11:56" }
 ];
 } else {
 // Default schedule if lunch period is not set
