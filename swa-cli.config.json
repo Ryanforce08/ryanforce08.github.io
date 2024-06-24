@@ -1,0 +1,9 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "ryanforce08.github.io": {
+      "appLocation": ".",
+      "outputLocation": "."
+    }
+  }
+}
