@@ -45,10 +45,26 @@ if (daytype === "Halfday"){
       { period: "Period 12", start: "13:32", end: "13:57" },
       { period: "Period 14", start: "14:00", end: "14:40" }
     ];
-  }    
+  }  
+else if (daytype === "hr"){
+  document.getElementById("lunch").textContent = "Extended Homeroom";
+  schedule = [
+    { period: "Homeroom", start: "07:35", end: "08:45" },
+    { period: "Period 1", start: "08:39", end: "09:12" },
+    { period: "Period 2", start: "09:16", end: "09:49" },
+    { period: "Period 3", start: "09:53", end: "10:26" },
+    { period: "Period 4/5", start: "10:30", end: "11:03" },
+    { period: "Period 6 - B Lunch", start: "11:06", end: "11:29" },
+    { period: "Period 8 - C Lunch", start: "11:42", end: "12:05" },
+    { period: "Period 10 - D Lunch", start: "12:18", end: "12:41" },
+    { period: "Period 11 - E Lunch", start: "12:54", end: "13:17" },
+    { period: "Period 12", start: "13:21", end: "13:55" },
+    { period: "Period 14", start: "14:00", end: "14:40" }
+  ];
+}   
 
 else if (lunchPeriod === "Period B") {
-  document.getElementById("lunch").textContent = "Lunch B";
+  document.getElementById("lunch").textContent = "Lunch 6";
   schedule = [
   { period: "School Starts in", start: "00:00", end: "07:34" },
   { period: "Homeroom", start: "07:35", end: "07:40" },
@@ -67,7 +83,7 @@ else if (lunchPeriod === "Period B") {
   { period: "Period 14", start: "14:00", end: "14:39" }
 ];
 } else if (lunchPeriod === "Period C") {
-  document.getElementById("lunch").textContent = "Lunch C";
+  document.getElementById("lunch").textContent = "Lunch 8";
   schedule = [
   { period: "School Starts in", start: "00:00", end: "07:34" },
   { period: "Homeroom", start: "07:35", end: "07:40" },
@@ -83,7 +99,7 @@ else if (lunchPeriod === "Period B") {
   { period: "Period 14", start: "14:00", end: "14:39" }
 ];
 } else if (lunchPeriod === "Period D") {
-  document.getElementById("lunch").textContent = "Lunch D";
+  document.getElementById("lunch").textContent = "Lunch 10";
   schedule = [
   { period: "School Starts in", start: "00:00", end: "07:34" },
   { period: "Homeroom", start: "07:35", end: "07:40" },
@@ -99,7 +115,7 @@ else if (lunchPeriod === "Period B") {
   { period: "Period 14", start: "14:00", end: "14:39" }
 ]; 
 } else if (lunchPeriod === "Period E") {
-  document.getElementById("lunch").textContent = "Lunch E";
+  document.getElementById("lunch").textContent = "Lunch 11";
   schedule = [
   { period: "School Starts in", start: "00:00", end: "07:34" },
   { period: "Homeroom", start: "07:35", end: "07:40" },
