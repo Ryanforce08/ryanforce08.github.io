@@ -54,8 +54,15 @@
     <option value="hr">Extended Homeroom</option>
     </select>
     <br>
+    <label for="funny" style="font-size: 25px; margin-top: 20px; color: #ffffff;">Enable Funny?</label>
+    <select id="funny">
+    <option value="False">False</option>
+    <option value="True">True</option>
+    </select>
+    <br>
     <button onclick="saveSettingslunch()">Save Lunch</button>
     <button onclick="saveSettingsday()">Save Day Type</button>
+    <button onclick="saveFunny()">Save Funny</button>
     <br>
     <a href="index.html">
         <button>Go Back</button>
@@ -69,6 +76,11 @@ function saveSettingslunch() {
 function saveSettingsday() {
   const counter = document.getElementById("day-type").value;
   localStorage.setItem("daytype", counter);
+  alert("Settings saved successfully!");
+}
+function saveFunny() {
+  const funni = document.getElementById("funny").value;
+  localStorage.setItem("funni", funni);
   alert("Settings saved successfully!");
 }
 </script>
