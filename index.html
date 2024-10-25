@@ -31,15 +31,39 @@
          margin-top: 20px;
          color: #333;
          }
+         #subway{
+          margin:50px ;
+          float:right;
+          top:-40px;
+          display: block;
+         }
+         #funny{
+          margin:50px ;
+          float:left;
+          top:-40px;
+          display: block;
+         }
       </style>
    </head>
    <body style="color: #333",>
       <meta name="darkreader-lock">
+      <div id="subway">
+      <video width="360" height="500" autoplay muted>
+        <source src="images/subway.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video>
+    </div>
+    <div id="funny">
+      <video width="360" height="500" autoplay muted>
+        <source src="images/funny.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video>
+    </div>
          <h1>School Period Countdown</h1>
          <div id="lunch"></div>
          <div id="period"></div>
          <div id="countdown"></div>
-         <h1></h1>
+         <br>
          <a href="settings.html">
          <button>Settings</button>
          </a>
@@ -49,7 +73,18 @@
          </div>
          <br>
          <div id="credit">Coded By Ryan Radtke/Ryanforce</div>
-      <script src="periods.js">
+      <script src="periods.js"></script>
+      <script>
+        const funni = localStorage.getItem("funni");
+        // Get the element by its ID
+        const subway = document.getElementById('subway');
+        const funny = document.getElementById('funny');
+
+        if (funni === 'False') {
+            funny.style.display = 'none';
+            subway.style.display = 'none'; // Show the element if it's true
+        }
+
       </script>
    </body>
 </html>
