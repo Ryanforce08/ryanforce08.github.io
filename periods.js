@@ -30,6 +30,25 @@ if (daytype === "Halfday"){
     { period: "Period 12", start: "11:28", end: "11:56" }
   ];
   }
+  else if (daytype === "vet") {
+    document.getElementById("lunch").textContent = "Veteran's Day";
+    schedule = [
+      { period: "Homeroom", start: "07:35", end: "07:45" },
+      { period: "Period 1", start: "07:49", end: "08:20" },
+      { period: "Period 2", start: "08:24", end: "08:55" },
+      { period: "Assembly", start: "09:00", end: "10:00" },
+      { period: "Period 3", start: "10:03", end: "10:34" },
+      { period: "Period 4/5", start: "10:38", end: "11:09" },
+      { period: "Period 6 - B Lunch", start: "11:13", end: "11:36" },
+      { period: "Period 7", start: "11:39", end: "11:45" },
+      { period: "Period 8 - C Lunch", start: "11:48", end: "12:11" },
+      { period: "Period 9", start: "12:14", end: "12:20" },
+      { period: "Period 10 - D Lunch", start: "12:23", end: "12:46" },
+      { period: "Period 11", start: "12:49", end: "12:55" },
+      { period: "Period 11 - E Lunch", start: "12:58", end: "13:21" },
+      { period: "Period 12", start: "13:24", end: "13:55" }
+    ];
+}
   else if (daytype === "2hour"){
     document.getElementById("lunch").textContent = "2 Hour Delay";
     schedule = [
